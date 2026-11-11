@@ -1,0 +1,446 @@
+/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti.
+   Lavoreremo su collegamenti, CSS condiviso e disposizione delle schede. */
+
+/* Scelte comuni: ogni regola usa var() per richiamarne il valore. */
+:root {
+  --colore-primario: #27664e;
+  --colore-primario-scuro: #17432f;
+  --colore-sfondo: #f5f2e9;
+  --colore-testo: #202923;
+  --font-testo: "Trebuchet MS", Arial, sans-serif;
+  --font-titoli: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--colore-sfondo);
+  color: var(--colore-testo);
+  font-family: var(--font-testo);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--colore-primario);
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--colore-testo);
+  outline-offset: 4px;
+}
+
+.container {
+  width: 92%;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 1.25rem 0;
+  border-bottom: 4px solid var(--colore-primario);
+}
+
+.brand {
+  display: inline-block;
+  color: var(--colore-testo);
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.brand span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+nav {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+nav a {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.25rem 0;
+}
+
+nav a[aria-current="page"] {
+  font-weight: bold;
+}
+
+.intro {
+  padding: 3rem 0 1rem;
+}
+
+.eyebrow,
+.event-meta {
+  color: #46564b;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-titoli);
+  line-height: 1.2;
+}
+
+h1 {
+  max-width: 18ch;
+  margin: 0.75rem 0 1.25rem;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.375rem;
+}
+
+.lead {
+  max-width: 48ch;
+  font-size: 1.25rem;
+}
+
+.reading-text {
+  max-width: 65ch;
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--colore-primario);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  background: var(--colore-primario-scuro);
+}
+
+.content-section {
+  margin: 2rem 0 3rem;
+}
+
+.festival-image {
+  display: block;
+  width: 100%;
+  max-width: 54rem;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.venues {
+  padding-left: 1.25rem;
+}
+
+.venues li {
+  margin-bottom: 0.5rem;
+}
+
+/* Qui inseriremo la regola .event-grid durante la demo. */
+.event-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 599px) {
+
+  .intro {
+    padding: 2rem 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  .content-section {
+    margin: 1.5rem 0 2rem;
+  }
+
+  .event-grid {
+    gap: 1rem;
+  }
+
+}
+
+
+/* TABLET: da 600px a 1023px */
+@media (min-width: 600px) and (max-width: 1023px) {
+
+  .intro {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .event-grid {
+    gap: 1.5rem;
+  }
+
+}
+
+/* Desktop: da 1024px in su */
+@media (min-width: 1024px) {
+  .event-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.event-card {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.event-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.event-body {
+  padding: 1.25rem;
+}
+
+.event-body p:last-child {
+  margin-bottom: 0;
+}
+
+.event-place {
+  color: #46564b;
+  font-size: 0.875rem;
+}
+
+.site-footer {
+  padding: 1.25rem 0;
+  border-top: 1px solid #b7c0b7;
+  color: #46564b;
+  font-size: 0.875rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -6rem;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  color: var(--colore-testo);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+
+/* CARD SLIDER RESPONSIVE */
+
+.content-section > .event-card {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.luoghi-swiper {
+  width: 100%;
+  min-width: 0;
+}
+
+.luoghi-swiper .swiper-slide {
+  min-width: 0;
+}
+
+.luoghi-swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.luoghi-swiper .event-body {
+  padding: 1.25rem;
+  padding-bottom: 3.5rem;
+}
+
+/* PULSANTI RESPONSIVE */
+
+
+/* CARD */
+
+.content-section > .event-card {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+/* SLIDER */
+
+.luoghi-swiper {
+  width: 100%;
+}
+
+.luoghi-swiper img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* PULSANTI SOPRA LA FOTO */
+
+
+/* PULSANTI IN FONDO ALLA CARD */
+
+.controlli-luoghi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.25rem 1.25rem;
+}
+
+.controlli-luoghi .swiper-button-prev,
+.controlli-luoghi .swiper-button-next {
+  position: static;
+  margin: 0;
+  transform: none;
+  color: var(--colore-primario);
+}
+
+/* SMARTPHONE */
+
+@media (max-width: 599px) {
+  .controlli-luoghi {
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .controlli-luoghi .swiper-button-prev,
+  .controlli-luoghi .swiper-button-next {
+    --swiper-navigation-size: 20px;
+  }
+}
+
+
+
+/* SMARTPHONE */
+@media (max-width: 599px) {
+
+  .content-section > .event-card {
+    margin: 1.5rem auto;
+  }
+
+  .luoghi-swiper .event-body {
+    padding: 1rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .luoghi-swiper .event-body h3 {
+    font-size: 1.2rem;
+  }
+
+}
+
+/* TABLET */
+@media (min-width: 600px) and (max-width: 1023px) {
+
+  .content-section > .event-card {
+    max-width: 600px;
+  }
+
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+
+  .content-section > .event-card {
+    max-width: 700px;
+  }
+
+}
+
+
+/* MAPPA RESPONSIVE */
+
+.mappa-festival {
+  display: block;
+  width: 100%;
+  height: 450px;
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+/* ELENCO SEDI */
+
+.elenco-sedi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.sede {
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+  min-width: 0;
+}
+
+.sede h4 {
+  margin: 0 0 0.5rem;
+}
+
+.sede p {
+  margin: 0 0 0.75rem;
+}
+
+/* TABLET */
+@media (min-width: 600px) {
+  .elenco-sedi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .elenco-sedi {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .mappa-festival {
+    height: 350px;
+  }
+}
